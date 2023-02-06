@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import os
 
 def chooseBrowser():
     global driver
@@ -46,7 +47,7 @@ chooseBrowser()
 driver.get("https://9gag.com/login")
 input("Log into 9gag. Press ENTER after login.")
 
-with open('bots.txt', 'r') as file:
+with open(os.path.realpath(os.path.dirname(__file__)) + os.sep + 'bots.txt', 'r') as file:
     for bot in file:
         bot = bot.strip()
         driver.get('https://9gag.com/u/'+bot)
